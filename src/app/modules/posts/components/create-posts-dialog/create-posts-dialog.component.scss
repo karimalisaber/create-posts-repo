@@ -1,0 +1,62 @@
+textarea {
+  border: none;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  resize: none;
+}
+textarea:focus-visible {
+  outline: none ;
+}
+
+.media-area {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+
+
+
+  .image-wrapper {
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+
+    .image {
+      width: 250px;
+      border-radius: 10px;
+      height: 100%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 0px;
+    }
+  }
+}
+
+
+
+.hidden-file-input{
+  width: 0px;
+}
+
+
+::-webkit-scrollbar {
+  width: 1px ;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+
+
+/* Scrolbar */
+::-webkit-scrollbar-thumb {
+  background: #f2f2f2;
+}

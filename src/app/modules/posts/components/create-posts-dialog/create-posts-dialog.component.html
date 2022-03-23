@@ -1,0 +1,41 @@
+<div class="main-wrapper">
+
+
+  <div class="header">
+    <h1>Create a Post</h1>
+
+    <div class="hr-seperator"></div>
+
+    <div class="avatar">
+
+    </div>
+  </div>
+
+  <div class="post-area">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <div class="media-area">
+      <ng-container *ngIf="activeFilesType === fileTypes.IMAGES">
+        <div *ngFor="let image of imagesUrls" class="image-wrapper">
+          <button (click)="removeFile(image.name)" class="btn close-btn">
+            <mat-icon>cancel</mat-icon>
+          </button>
+
+          <img class="image" [src]="image.url" alt="">
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+  <div class="hr-seperator"></div>
+
+  <div class="controls-area">
+    <button [disabled]="imagesUrls.length > 0" (click)="uploadImagsRef.click()" class="btn">
+      <img class="small-image" src="assets/images/upload-image.png" alt="">
+    </button>
+
+    <input class="hidden-file-input" #uploadImagsRef accept="image/*" multiple
+      (change)="uploadImage($event, fileTypes.IMAGES)" type="file">
+  </div>
+</div>
