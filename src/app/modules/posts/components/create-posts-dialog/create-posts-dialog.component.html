@@ -16,7 +16,7 @@
 
     <div class="media-area">
       <ng-container *ngIf="activeFilesType === fileTypes.IMAGES">
-        <div *ngFor="let image of imagesUrls" class="image-wrapper">
+        <div *ngFor="let image of filesUrls" class="image-wrapper">
           <button (click)="removeFile(image.name)" class="btn close-btn">
             <mat-icon>cancel</mat-icon>
           </button>
@@ -24,18 +24,49 @@
           <img class="image" [src]="image.url" alt="">
         </div>
       </ng-container>
+
+      <ng-container *ngIf="activeFilesType === fileTypes.VIDEOS">
+        <div *ngFor="let image of filesUrls" class="image-wrapper">
+          <button (click)="removeFile(image.name)" class="btn close-btn">
+            <mat-icon>cancel</mat-icon>
+          </button>
+
+          <video class="video"  width="320" height="240" controls>
+            <source [src]="image.url">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
+
+      </ng-container>
+
+
+
     </div>
   </div>
 
 
   <div class="hr-seperator"></div>
 
-  <div class="controls-area">
-    <button [disabled]="imagesUrls.length > 0" (click)="uploadImagsRef.click()" class="btn">
-      <img class="small-image" src="assets/images/upload-image.png" alt="">
-    </button>
+  <div class="controls-area d-flex">
+    <div class="upload-images-btn">
+      <button [disabled]="filesUrls.length > 0" (click)="uploadImagsRef.click()" class="btn">
+        <img class="small-image" src="assets/images/upload-image.png" alt="">
+      </button>
 
-    <input class="hidden-file-input" #uploadImagsRef accept="image/*" multiple
-      (change)="uploadImage($event, fileTypes.IMAGES)" type="file">
+      <input class="hidden-file-input" #uploadImagsRef accept="image/*" multiple
+        (change)="uploadFiles($event, fileTypes.IMAGES)" type="file">
+    </div>
+
+
+    <div class="upload-vedioes-btn">
+      <button [disabled]="filesUrls.length > 0" (click)="uploadVideoRef.click()" class="btn">
+        <img class="small-image" src="assets/images/upload-image.png" alt="">
+      </button>
+
+      <input class="hidden-file-input" #uploadVideoRef accept="video/*" multiple
+        (change)="uploadFiles($event, fileTypes.VIDEOS)" type="file">
+    </div>
   </div>
 </div>

@@ -13,6 +13,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
+button[disabled]{
+  opacity: .5;
+
+
+  &:hover{
+    cursor: none;
+  }
+}
 
 .small-image{
   width: 20px;
@@ -24,4 +32,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-bottom: 1px solid #f2f2f2;
   width: 100%;
   margin-bottom: 10px;
+}
+
+
+.d-flex{
+  display: flex;
+  gap: 15px;
 }
